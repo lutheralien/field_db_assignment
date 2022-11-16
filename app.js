@@ -47,7 +47,6 @@ app.use(
 app.use(flash());
 app.use(logger('dev'));
 app.use(cors());
-app.use(methodOverride('_method'));
 // Global variables
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
