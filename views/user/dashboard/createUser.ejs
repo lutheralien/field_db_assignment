@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>AIT FIELD ASSIGNMENT:: Dashboard</title>
+    <link rel="shortcut icon" href="../../../home/images/favicon2.jpg.png" type="image/x-icon">
+<link rel="stylesheet" href="../../../styles/form.css">
+    <!-- Bootstrap core CSS-->
+    <link href="../../../dashboard_public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+   
+<link rel="stylesheet" href="../../../dashboard_public/vendor/fontawesome-free/css/all.min.css">
+    <!-- Page level plugin CSS-->
+
+    <!-- Custom styles for this template-->
+    <link href="../../../dashboard_public/css/sb-user.css" rel="stylesheet">
+
+    <style>
+      .card {
+  margin-top: 2em;
+  padding: 1.5em 0.5em 0.5em;
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 65%;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card .card-title {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.card .btn {
+  border-radius: 2em;
+  background-color: teal;
+  color: #ffffff;
+  padding: 0.5em 1.5em;
+}
+.card .btn:hover {
+  background-color: rgba(0, 128, 128, 0.7);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+    </style>
+    
+      </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="/user/dashboard">Menu</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        
+      </form>
+
+      <!-- Navbar -->
+   
+       
+      </ul>
+    </nav>
+    <div id="wrapper_two">
+    </div>
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/user/dashboard">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/user/create-user">
+            <i class="fas fa-address-card"></i>
+            <span>Create User</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/user/table-of-persons">
+            <i class="fas fa-fw fa-table"></i>
+            <span>View Info</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/user/data-sheet">
+            <i class="fas fa-users-cog"></i>
+            <span>Data</span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/user/logout">
+            <i class="fa fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+
+       
+      </ul>
+
+      <div id="content-wrapper">
+             <!-- /.container-fluid -->
+     <%- include('../../Includes/messages.ejs') %>
+
+     <div class="container ">
+        <header class="header">
+            <h1 id="title">
+                STUDENT FIELD ASSIGNMENT
+            </h1>
+            <p id="description">
+                Each group of Students should take data sample size 70 ≥x≤ 140 from the community.
+        Targeted Professional Circles:  Medical Practitioners; Teacher; Traders/Business persons; Media Personnel; Bankers; Security personnel; Administrative workers
+        Age Limit: not less than 18 years old.
+        
+        POINT TO NOTE: The number of males interviewed should be equal to the females.
+            </p>
+        </header>
+        <form action="/user/create-user" id="survey-form" method="post">
+        
+            <!-- Text section -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="formControl" placeholder="Enter your name" required>
+            </div>
+        
+            <div class="form-group">
+                <p id="quest">GENDER?</p>
+                <label for="">
+                    <input type="radio" name="gender" value="MALE"
+                    class="inputRadio" required
+                    > MALE
+                </label>
+                <label for="">
+                    <input type="radio" name="gender" value="FEMALE"
+                    class="inputRadio" required
+                    >FEMALE
+                </label>
+
+            </div>
+            <div class="form-group">
+                <p id="quest">NAME OF PROFESSION ?</p>
+                <label for="">
+                    <input type="radio" name="profession" value="Teacher"
+                    class="inputRadio" required
+                    > Teacher
+                </label>
+                <label for="">
+                    <input type="radio" name="profession" value="Medical_Person"
+                    class="inputRadio" required
+                    >Medical Person
+                </label>
+                <label for="">
+                    <input type="radio" name="profession" value="Banker"
+                    class="inputRadio" required
+                    > Banker
+                </label>
+                <label for="">
+                    <input type="radio" name="profession" value="Trader_or_Business_Man"
+                    class="inputRadio" required
+                    > Trader/Business_Man
+                </label>
+                <label for="">
+                    <input type="radio" name="profession" value="Security_Personnel"
+                    class="inputRadio" required
+                    > Security / Personnel
+                </label>
+            </label>
+            <label for="">
+                <input type="radio" name="profession" value="Media_Person"
+                class="inputRadio" required
+                > Media Person
+            </label>
+        </label>
+        <label for="">
+            <input type="radio" name="profession" value="Administrator"
+            class="inputRadio" required
+            > Administrator
+        </label>
+            </div>
+            <!-- end of text section -->
+            
+            <div class="form-group">
+                <label for="name_of_institution">Name Of Institution</label>
+                <input type="text" name="name_of_institution" id="name_of_institution" class="formControl" placeholder="Enter Name of Institution" required>
+            </div>
+            
+        
+            <!-- select section -->
+            <div class="form-group">
+                <p id="quest">HAVE YOU EVER HEARD OF ENGINEERING AS A PROFESSION BEFORE?</p>
+                <select name="question_1" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    <option value="MAYBE">MAYBE</option>
+                    <option value="NOT YET">NOT YET</option>
+                </select>
+            </div>
+            <!-- end of select section -->
+            <div class="form-group">
+                <p id="quest">WHEN WE MENTION ENGINEERING, WHAT COMES TO MIND?</p>
+                <textarea name="question_2"  cols="30" rows="5" class="textarea" placeholder="Enter your feedback here..." required></textarea>
+            </div>
+            <div class="form-group">
+                <p id="quest">HAVE YOU EVER HAVE THE LOVE TO PURSUE ENGINEERING IN ANY POINT OF YOUR LIFE?</p>
+                <select name="question_3" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    <option value="MAYBE">MAYBE</option>
+                    <option value="NOT YET">NOT YET</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <p id="quest">DID YOU EVER HAVE THE LOVE OF BECOMING AN ENGINEER WHEN GROWING UP AS A CHILD?</p>
+                <select name="question_4" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    <option value="MAYBE">MAYBE</option>
+                    
+                </select>
+            </div>
+        
+        
+            <div class="form-group">
+                <p id="quest">WHAT DO YOU THINK WILL STOP SOMEONE FROM PURSUING ENGINEERING? </p>
+                <label for="">
+                    <input type="checkbox" name="question_5" class="checkbox" value="LACK OF INFORMATION"> I. LACK OF INFORMATION
+                </label>
+                <label for="">
+                    <input type="checkbox" name="question_5" class="checkbox" value="FINANCE">II. FINANCE
+                </label>
+                <label for="">
+                    <input type="checkbox" name="question_5" class="checkbox" value="COURSE KNOWN TO BE DIFICULT"> III. COURSE KNOWN TO BE DIFICULT
+                </label>
+              
+            </div>
+        
+            <div class="form-group">
+                <p id="quest">IF YOU HAD THE CHANCE TO BECOME AN ENGINEER, WHAT WILL THE FEELING BE? </p>
+                <select name="question_6" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="NORMAL">NORMAL</option>
+                    <option value="HAPPY">HAPPY</option>
+                    <option value="VERY HAPPY">VERY HAPPY</option>
+                    
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <p id="quest">WILL YOU ADVICE YOUR CHILD TO PURSUE ENGINEERING?</p>
+                <select name="question_7" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    <option value="MAYBE">MAYBE</option>
+                    
+                </select>
+            </div>
+        
+        
+            <div class="form-group">
+                <p id="quest">WHAT ARE SOME OF THE CLICHES YOU HAVE HEARD ABOUT ENGINEERING?</p>
+                <textarea name="question_8"  cols="30" rows="5"  id="feedback" class="textarea" placeholder="Enter your feedback here..." required></textarea>
+            </div>
+        
+        
+            <div class="form-group">
+                <p id="quest">ARE YOU MARRIED?</p>
+                <select name="question_9" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    
+                </select>
+            </div>
+        
+            
+            <div class="form-group">
+                <p id="quest">WILL YOU MARRY AN ENGINEER?</p>
+                <select name="question_10" required id="dropdown" class="formControl">
+                    <option value disabled selected >Select Option</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                    <option value="MAYBE">MAYBE</option>
+        
+                    
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn-submit">Submit</button>
+            </div>
+        </form>
+        </div>
+        </div>
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © AIT FIELD ASSIGNMENT 2022</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+ 
+    
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../../dashboard_public/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../dashboard_public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../../dashboard_public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+
+   
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../../dashboard_public/js/sb-user.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+   
+
+  </body>
+
+</html>
