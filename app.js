@@ -3,9 +3,13 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
 const env = require('dotenv')
-const sql = require('./database/mysql');
+
 const MySQLStore = require('express-mysql-session')(session);
 const mysql = require('mysql')
+const logger = require('morgan')
+const cors = require('cors')
+
+
 
 env.config();
 const app = express();
@@ -41,7 +45,9 @@ app.use(
 );
 
 app.use(flash());
-  
+app.use(logger('dev'));
+app.use(cors());
+app.use(methodOverride('_method'));
 // Global variables
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
