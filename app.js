@@ -4,11 +4,29 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser')
 const env = require('dotenv')
 const sql = require('./database/mysql');
+const MySQLStore = require('express-mysql-session')(session);
+const mysql = require('mysql')
 
 env.config();
 const app = express();
 
-sql.connect();    
+const options = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,   
+  database: process.env.DB_NAME,
+}
+const db = mysql.createConnection(options);
+// connect to database
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('Connected Successfully!');
+});
+const sessionStore = new MySQLStore({}, db);
+
+    
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -17,7 +35,8 @@ app.use(
   session({
     secret: process.env.JWT_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: sessionStore
   })
 );
 
